@@ -28,7 +28,7 @@ const Cart: React.FC<Props> = ({ cartItems, updateCart }) => {
                     > Update cart
                 </Button>
             </div>
-            {cartItems.length === 0 ? <p>There are no items in your cart.</p> : null}
+            {cartItems.length === 0 ? <p>There are no items in your cart.</p> : <p>You have {cartItems.length} items in your cart</p>}
             {cartItems.map(item => (
             <CartItem
                 key={item.id}

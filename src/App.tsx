@@ -14,7 +14,7 @@ export type FruitType = {
 
 // JSON object that will act as input(cart contents)
 const fruits = [
-  { id: 1, icon: 'grapes', name: "Grapes", price: 5, quantity: 0, discountedPrice: 0 },
+  { id: 1, icon: 'grapes', name: "Grapes", price: 5, quantity: 7, discountedPrice: 0 },
   { id: 2, icon: 'apple', name: "Apples", price: 3, quantity: 7, discountedPrice: 0}, 
   { id: 3, icon: 'peach', name: "Peaches", price: 7, quantity: 7, discountedPrice: 0 }
 ];
@@ -24,7 +24,14 @@ function App() {
   const [cartTotal, setCartTotal] = useState(0);
 
   function handleUpdateCart() {
-    setCart(fruits);
+    var items:Array<FruitType>=[] 
+    
+    fruits.forEach(item => {
+      if (item.quantity > 0)
+        items.push(item);
+    });
+
+    setCart(items);
   }
 
   function updateCartTotal(total: number) {

@@ -27,7 +27,8 @@ p {
 
 /*
 TO DO:
-- add item counter
+X fix item showing up even when qty is 0
+X add item counter
 - add box and discount totals
 - add more styles
 - add tests and comments
