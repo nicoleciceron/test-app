@@ -1,25 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Button } from '@mui/material';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Cart from './Cart/Cart';
+
+export type FruitType = {
+  id: number;
+  icon: string;
+  name: string;
+  price: number;
+  quantity: number;
+  discountedPrice: number;
+};
+
+// JSON object that will act as input(cart contents)
+const fruits = [
+  { id: 1, icon: 'grapes', name: "Grapes", price: 5, quantity: 0, discountedPrice: 0 },
+  { id: 2, icon: 'apple', name: "Apples", price: 3, quantity: 7, discountedPrice: 0}, 
+  { id: 3, icon: 'peach', name: "Peaches", price: 7, quantity: 7, discountedPrice: 0 }
+];
 
 function App() {
+  const [cart, setCart] = useState([] as FruitType[]);
+  const [cartTotal, setCartTotal] = useState(0);
+
+  function handleUpdateCart() {
+    setCart(fruits);
+  }
+
+  function updateCartTotal(total: number) {
+    setCartTotal(total);
+  }
+  
+  useEffect(() => {
+    const total = cart.reduce<number>((accumulator, current) => {
+      console.log(current.discountedPrice);
+      return accumulator + current.discountedPrice;
+    },0);
+    
+    updateCartTotal(total);
+    console.log(total);
+  }, [cart]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <Cart
+        cartItems={cart}
+        updateCart={handleUpdateCart}   
+      />
+      <h2 className='total'>Total: ${cartTotal}</h2>
+    </div>  
   );
 }
 

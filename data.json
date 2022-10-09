@@ -1,0 +1,14 @@
+[
+	{ 
+		"fruitName" : "grapes",
+                "amount" : 1
+        },
+	{ 
+                "fruitName" : "apples",
+                "amount" : 0
+	},
+	{
+                "fruitName" : "peaches",
+                "amount" : 1
+	}
+]

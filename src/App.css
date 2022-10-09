@@ -1,7 +1,6 @@
-.App {
-  text-align: center;
+* {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -21,7 +20,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: lightgrey;
 }
 
 .App-link {
@@ -36,3 +35,17 @@
     transform: rotate(360deg);
   }
 }
+/*
+h2 {
+  margin-left: 5px;
+}
+
+h4 {
+  margin-left: 20px;
+}
+
+.total {
+  text-align: right;
+  margin-right: 20px;
+}
+*/

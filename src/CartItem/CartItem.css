@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    width: 100%;
+    float: left;
+}
+
+.container-child {
+    flex: 1;
+}
+
+.container-child:first-child {
+    margin-right: 50%;
+    margin-bottom: 0;
+}
+
+p {
+    display:contents;
+    color: darkslategray;
+    font-weight: bolder;
+}
+
+.product-quantity {
+    font-weight: 450;
+    color: gray;
+    text-indent: 45px;
+}
+
+/*
+TO DO:
+- add item counter
+- add box and discount totals
+- add more styles
+- add tests and comments
+*/
