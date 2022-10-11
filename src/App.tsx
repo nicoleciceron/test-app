@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import './App.css';
 import Cart from './Cart/Cart';
