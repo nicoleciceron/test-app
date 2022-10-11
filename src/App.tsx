@@ -21,7 +21,8 @@ const fruits = [
 
 function App() {
   const [cart, setCart] = useState([] as FruitType[]);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [cartETotal, setCartETotal] = useState(0);
+  const [cartSubTotal, setCartSubTotal] = useState(0);
 
   function handleUpdateCart() {
     var items:Array<FruitType>=[] 
@@ -34,28 +35,54 @@ function App() {
     setCart(items);
   }
 
-  function updateCartTotal(total: number) {
-    setCartTotal(total);
+  function updateCartETotal(total: number) {
+    setCartETotal(total);
+  }
+
+  function updateCartSubTotal(total: number) {
+    setCartSubTotal(total);
   }
   
   useEffect(() => {
-    const total = cart.reduce<number>((accumulator, current) => {
+    const etotal = cart.reduce<number>((accumulator, current) => {
       console.log(current.discountedPrice);
       return accumulator + current.discountedPrice;
     },0);
+
+    const subtotal = cart.reduce<number>((accumulator, current) => {
+      return (accumulator + (current.price * current.quantity));
+    },0);
     
-    updateCartTotal(total);
-    console.log(total);
+    updateCartSubTotal(subtotal);
+    updateCartETotal(etotal);
   }, [cart]);
 
   return (
-    <div>
-      <Cart
-        cartItems={cart}
-        updateCart={handleUpdateCart}   
-      />
-      <h2 className='total'>Total: ${cartTotal}</h2>
-    </div>  
+    <div className='app-container'>
+      <div className='child cart'>
+        <Cart
+          cartItems={cart}
+          updateCart={handleUpdateCart}   
+        />
+      </div> 
+      <div className='child total'>
+        <h1>Cart Summary</h1>
+        <hr />
+        <div className='total-div'>
+          <h3> Subtotal: </h3>
+          <h3> ${cartSubTotal.toFixed(2)}</h3>
+        </div>
+        <div className='total-div'>
+          <h4> Total Discounts: </h4>
+          <h4> ${(cartSubTotal - cartETotal).toFixed(2)} </h4>
+        </div>
+        <hr />
+        <div className='total-div'>
+          <h3 className='total'>Estimated Total: </h3>
+          <h3 className='total text'>${cartETotal.toFixed(2)}</h3>
+        </div>
+      </div>
+    </div>
   );
 }
 

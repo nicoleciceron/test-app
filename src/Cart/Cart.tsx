@@ -13,12 +13,11 @@ type Props = {
 const Cart: React.FC<Props> = ({ cartItems, updateCart }) => {
 //   const calculateCartTotal = (items: FruitType[]) =>
 //     items.reduce((ack: number, item) => ack + item.quantity * item.price, 0);
-    var emoji = require('node-emoji');
 
     return (
         <div className='cart-container'>
             <div className='cart-header'>
-                <h2>Your Shopping Cart</h2>
+                <h1>Your Shopping Cart</h1>
                 <Button
                     size='small'
                     disableElevation
@@ -28,13 +27,15 @@ const Cart: React.FC<Props> = ({ cartItems, updateCart }) => {
                     > Update cart
                 </Button>
             </div>
-            {cartItems.length === 0 ? <p>There are no items in your cart.</p> : <p>You have {cartItems.length} items in your cart</p>}
-            {cartItems.map(item => (
-            <CartItem
-                key={item.id}
-                item={item} 
-            />
-            ))}
+            <div className='cart-contents'>
+                {cartItems.length === 0 ? <p>Your cart is currently empty</p> : <p>You have {cartItems.length} items in your cart</p>}
+                {cartItems.map(item => (
+                <CartItem
+                    key={item.id}
+                    item={item} 
+                />
+                ))}
+            </div>
         </div>
     );
 };

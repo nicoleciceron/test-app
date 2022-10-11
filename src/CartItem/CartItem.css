@@ -1,16 +1,21 @@
 .container {
     display: flex;
     width: 100%;
-    float: left;
+    margin-left: 50px;
 }
 
 .container-child {
     flex: 1;
 }
 
-.container-child:first-child {
-    margin-right: 50%;
+.container-child.title {
+    margin-right: 40%;
     margin-bottom: 0;
+}
+
+.container-child.price {
+    margin-right: 0;
+    float: right;
 }
 
 p {
@@ -22,14 +27,15 @@ p {
 .product-quantity {
     font-weight: 450;
     color: gray;
-    text-indent: 45px;
+    text-indent: 20px;
 }
 
 /*
 TO DO:
 X fix item showing up even when qty is 0
 X add item counter
-- add box and discount totals
-- add more styles
+X add box
+X add discount totals
+X add more styles
 - add tests and comments
 */
