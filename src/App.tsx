@@ -14,9 +14,9 @@ export type FruitType = {
 
 // JSON object that will act as input(cart contents)
 const fruits = [
-  { id: 1, icon: 'grapes', name: "Grapes", price: 5, quantity: 7, discountedPrice: 0 },
-  { id: 2, icon: 'apple', name: "Apples", price: 3, quantity: 7, discountedPrice: 0}, 
-  { id: 3, icon: 'peach', name: "Peaches", price: 7, quantity: 7, discountedPrice: 0 }
+  { id: 1, icon: 'peach', name: "Peaches", price: 7, quantity: 1, discountedPrice: 0 },
+  { id: 2, icon: 'grapes', name: "Grapes", price: 5, quantity: 2, discountedPrice: 0 },
+  { id: 3, icon: 'apple', name: "Apples", price: 3, quantity: 2, discountedPrice: 0}, 
 ];
 
 function App() {

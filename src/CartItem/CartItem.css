@@ -14,6 +14,7 @@
 }
 
 .container-child.price {
+    margin-top: 40px;
     margin-right: 0;
     float: right;
 }
@@ -29,13 +30,3 @@ p {
     color: gray;
     text-indent: 20px;
 }
-
-/*
-TO DO:
-X fix item showing up even when qty is 0
-X add item counter
-X add box
-X add discount totals
-X add more styles
-- add tests and comments
-*/
